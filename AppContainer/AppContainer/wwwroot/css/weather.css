@@ -1,0 +1,44 @@
+﻿body {
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    color: background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.weather {
+    margin: 15px;
+    background-color: # fffafa;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px 0 #e610bf;
+}
+
+    .weather:hover {
+        box-shadow: 0 0 600px 0 #e610bf;
+        transition: .4s;
+        transform: scale(1.03);
+    }
+     
+button{
+    border-radius:100px;
+    margin: 5px;
+    width: 100%;
+    font-size: 35px;
+    padding:5px;
+}
+
+    button:hover {
+        transition: .4s;
+        transform: scale(1.2);
+        backgound-color: #e610bf;
+    }
+    .bosluk{
+        border-radius:150px;
+        width:80%;
+        font-size:30px;
+    }
+        .bosluk:focus-visible {
+            background-color: #e610bf;
+            text-decoration-color: #000000;
+        }
+        .row{
+            font-family:'Times New Roman', Times, serif
+        }

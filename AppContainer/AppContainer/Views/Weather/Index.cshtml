@@ -1,0 +1,101 @@
+﻿﻿@{
+    ViewData["Title"] = "Weather Forecast";
+    Layout = "_Weather";
+}
+@model List<WeatherModel>
+
+   
+
+
+<a class="nav-link fixed-top text-start m-3 return" asp-area="" asp-controller="Home" asp-action="index">Back</a>
+
+
+
+
+<div class="row">
+
+
+
+    <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="weather">
+            <div class="row justify-content-center">
+                <div class="col info">
+                    <h2>Today</h2>
+                    <div class="location">
+                        <i class="loc-icon fa-solid fa-location-dot"></i>
+                        <span class="cityname">Paris</span>
+                        <span>,</span>
+                        <span class="countryname">FR</span>
+                    </div>
+
+                    <div class="degree">
+                        <h1 class="temp">29°C</h1>
+                        <h2 class="sunny">Sunny</h2>
+                    </div>
+                </div>
+                <div class="col detail">
+                    <div class="details mt-5">
+                        <div class="press">
+                            <span class="title">PRESSURE</span>
+                            <span class="value pressure">1007 mb</span> <br />
+                        </div>
+                        <div class="humid">
+                            <span class="title">HUMIDITY</span>
+                            <span class="value humidity">12 %</span>
+                        </div>
+                        <div class="win">
+                            <span class="title">WIND</span>
+                            <span class="value wind">1.46 km/h</span>
+                        </div>
+                    </div>
+                    <div class="search mt-5 inputBox">
+                        <input type="text" placeholder="Change Location" spellcheck="false">
+                        <i class="fa-solid fa-location-dot inp-icon"></i>
+                        <button>Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col">
+        <div class="row">
+            @foreach (var app in Model)
+            {
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="weather">
+                        <h1 class="temp">
+                            @{
+                                var a = app.Main.Temp - 273.15;
+                                app.Main.Temp = a;
+                            } @app.Main.Temp.ToString("0")
+                            <span class="othercelcius">°C</span>
+                        </h1>
+                        <div class="location">
+                            <i class="loc-icon fa-solid fa-location-dot"></i>
+                            <span class="cityname">@app.Name</span>
+                            <span>,</span>
+                            <span class="countryname">@app.Sys.Country</span>
+                        </div>
+                        <div class="details mt-5">
+                            <div class="press mt-5">
+                                <span class="title">PRESSURE</span>
+                                <span class="value pressure">@app.Main.Pressure mb</span> <br />
+                            </div>
+                            <div class="humid mt-5">
+                                <span class="title">HUMIDITY</span>
+                                <span class="value humidity">@app.Main.Humidity %</span>
+                            </div>
+                            <div class="win mt-5">
+                                <span class="title">WIND</span>
+                                <span class="value wind">@app.Wind.Speed km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
